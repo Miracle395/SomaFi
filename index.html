@@ -298,7 +298,7 @@ async function connectWallet() {
       try {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: somniaChainId }],
+          params: [{ chainId: 50312 }],
         });
       } catch (switchError) {
         if (switchError.code === 4902) {
@@ -306,15 +306,15 @@ async function connectWallet() {
             await window.ethereum.request({
               method: 'wallet_addEthereumChain',
               params: [{
-                chainId: somniaChainId,
+                chainId: 50312,
                 chainName: 'Somnia',
                 nativeCurrency: {
                   name: 'Somnia',
-                  symbol: 'SOM',
+                  symbol: 'STT',
                   decimals: 18,
                 },
-                rpcUrls: ['https://rpc.testnet.somnia.network'],
-                blockExplorerUrls: ['https://explorer.testnet.somnia.network'],
+                rpcUrls: ['https://dream-rpc.somnia.network'],
+                blockExplorerUrls: ['https://shannon-explorer.somnia.network'],
               }],
             });
           } catch (addError) {
